@@ -55,18 +55,33 @@ img {
     width: 100%;
     height: 100vh;
     min-height: 100vh;
-    display: grid;
-    place-content: center;
+    /* display: grid;
+    place-content: center; */
     background-color: var(--dark-cyan);
     padding: 0 1.75rem;
     position: relative;
+    overflow: hidden;
 }
 
-.container::before {
+.pattern-top,
+.pattern-bottom {
     position: absolute;
-    content: "";
-    background: url(../images/bg-pattern-top.svg);
+    max-width: 700px;
+    /* z-index: 0; */
 }
+
+.pattern-top {
+    top: -35%;
+    left: -50%;
+    transform: rotate(80deg);
+}
+
+.pattern-bottom {
+    bottom: -40%;
+    right: -40%;
+    transform: rotate(30deg);
+}
+
 
 .card {
     max-width: 300px;
@@ -74,6 +89,10 @@ img {
     border-radius: 0.85rem;
     overflow: hidden;
     box-shadow: 0 15px 30px #00000046;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .card__pattern-img {
@@ -143,7 +162,54 @@ img {
     text-align: center;
     padding: 0.75rem;
     font-size: 15px;
-    background-color: var(--dark-cyan);
     color: var(--dark-desaturated-blue);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
 }
 /* ---x--- Footer End ---x--- */
+
+
+@media screen and (min-width:645px) {
+    .pattern-top {
+        left: -50%;
+        top: -50%;
+    }   
+
+    .pattern-bottom {
+        bottom: -60%;
+        right: -40%;
+    }
+}
+
+
+@media screen and (min-width: 790px) {
+    .pattern-top {
+        transform: rotate(30deg);
+        left: -36%;
+    }
+
+    .pattern-bottom {
+        right: -30%;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .pattern-top, 
+    .pattern-bottom {
+        max-width: 100%;
+    }
+    .pattern-top {
+        left: -50%;
+        top: -120%;
+        transform: rotate(2deg);
+    }
+
+    .pattern-bottom {
+        bottom: -140%;
+        right: -50%;
+    }
+
+}
